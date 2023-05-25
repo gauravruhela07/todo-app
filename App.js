@@ -32,12 +32,7 @@ export default function App() {
   return (
     <>
     <StatusBar style='light' />
-    <View style={styles.appContainer}>
-      <Button 
-        title='Add New Goal' 
-        color="#a065ec"
-        onPress={startAddGoalHandler}
-      />
+    <View style={styles.appContainer}>      
       <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} onCancel={endAddGoalHandler}/>
       <View style={styles.goalsContainer}>
         <FlatList data={courseGoals} renderItem={(itemData) => {
@@ -51,6 +46,13 @@ export default function App() {
         }}
         alwaysBounceVertical={false} />           
       </View>
+      <View style={styles.button}>
+        <Button 
+          title='Add New Goal' 
+          color="#a065ec"
+          onPress={startAddGoalHandler}
+        />
+      </View>
     </View>
     </>
   );
@@ -63,7 +65,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16    
   },  
   goalsContainer: {
-    flex: 5
+    flex: 5    
   },
-  
+  button: {
+    paddingBottom:20
+  }
 });
